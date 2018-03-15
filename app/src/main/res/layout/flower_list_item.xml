@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="190dp">
+        <View
+            android:id="@+id/flower_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_width="100dp"
+            android:layout_height="120dp"/>
+        <TextView
+            android:id="@+id/tx_flower_name"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:text="꽃이름"/>
+        <TextView
+            android:id="@+id/tx_flower_price"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:text="가격"/>
+        <Button
+            android:layout_width="35dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:text="up"
+            android:layout_above="@+id/tx_count"/>
+        <TextView
+            android:id="@+id/tx_count"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/btn_down"
+            android:gravity="center"
+            android:text="6"/>
+        <Button
+            android:id="@+id/btn_down"
+            android:layout_width="35dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:text="down"
+            android:layout_alignParentBottom="true"
+
+            />
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text="총 합"
+            />
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:text="입력"/>
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
