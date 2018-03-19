@@ -157,12 +157,11 @@
         android:layout_marginTop="180dp"
         android:layout_centerHorizontal="true">
 
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/flower_list"
-            android:numColumns="2">
-        </GridView>
-
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/flower_list"
+                android:numColumns="2">
+            </GridView>
     </RelativeLayout>
 </RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="주소"
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="서울시"
+        android:textSize="30dp"
+        android:layout_marginLeft="70dp"/>
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="170dp"
+        android:text="강서구"
+        android:textSize="30dp"/>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:textSize="30dp"
+        android:text="검색"
+        android:layout_alignParentRight="true"/>
+
+    <ListView
+        android:id="@+id/list_store"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true">
+    </ListView>
+</RelativeLayout>
