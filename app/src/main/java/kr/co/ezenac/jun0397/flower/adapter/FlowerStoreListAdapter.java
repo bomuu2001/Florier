@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -43,24 +44,30 @@ public class FlowerStoreListAdapter extends BaseAdapter {
         if(view==null){
             view = LayoutInflater.from(viewGroup.getContext()).
                     inflate(R.layout.flower_store_list_item,viewGroup,false);
-            holder.tx_flower_name = view.findViewById(R.id.tx_flower_name);
-            holder.tx_flower_price =view.findViewById(R.id.tx_flower_price);
-            holder.flower_img = view.findViewById(R.id.flower_img);
+            holder.tx_flower_store_name = view.findViewById(R.id.tx_flower_store_name);
+            holder.tx_flower_store_address =view.findViewById(R.id.tx_flower_store_address);
+            holder.tx_flower_store_phone=view.findViewById(R.id.tx_flower_store_phone);
+            holder.flower_store_img = view.findViewById(R.id.flower_store_img);
+            holder.btn_flower_store_plus=view.findViewById(R.id.btn_flower_store_plus);
 
             view.setTag(holder);
         } else{
             holder = (FlowerStoreListAdapter.Holder)view.getTag();
         }
         Store item = (Store) getItem(position);
-        holder.flower_img.setBackgroundResource(R.drawable.ic_launcher_background);
+        holder.tx_flower_store_name.setText(item.getName());
+        holder.tx_flower_store_phone.setText(item.getCall());
+        holder.tx_flower_store_address.setText(item.getAddress());
 
         return view;
     }
 
     private class Holder{
-        View flower_img;
-        TextView tx_flower_name;
-        TextView tx_flower_price;
+        View flower_store_img;
+        TextView tx_flower_store_name;
+        TextView tx_flower_store_phone;
+        TextView tx_flower_store_address;
+        Button btn_flower_store_plus;
     }
 
 }

@@ -6,14 +6,16 @@ package kr.co.ezenac.jun0397.flower.Bean;
 
 public class Store {
     private int flower_store_id;
+    private String name;
     private String city;
     private String district;
     private String img_src;
-    private int  call;
+    private String  call;
     private String address;
 
-    public Store(int flower_store_id, String city, String district, String img_src, int call, String address) {
+    public Store(int flower_store_id, String name, String city, String district, String img_src, String call, String address) {
         this.flower_store_id = flower_store_id;
+        this.name = name;
         this.city = city;
         this.district = district;
         this.img_src = img_src;
@@ -27,6 +29,14 @@ public class Store {
 
     public void setFlower_store_id(int flower_store_id) {
         this.flower_store_id = flower_store_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCity() {
@@ -53,11 +63,11 @@ public class Store {
         this.img_src = img_src;
     }
 
-    public int getCall() {
+    public String getCall() {
         return call;
     }
 
-    public void setCall(int call) {
+    public void setCall(String call) {
         this.call = call;
     }
 

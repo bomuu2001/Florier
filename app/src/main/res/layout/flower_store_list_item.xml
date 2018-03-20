@@ -6,12 +6,14 @@
         android:layout_width="match_parent"
         android:layout_height="100dp">
         <View
+            android:id="@+id/flower_store_img"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerVertical="true"
             android:background="@mipmap/ic_launcher"/>
 
         <TextView
+            android:id="@+id/tx_flower_store_name"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
@@ -20,6 +22,7 @@
             android:textSize="25dp"/>
 
         <TextView
+            android:id="@+id/tx_flower_store_phone"
             android:layout_width="150dp"
             android:layout_height="20dp"
             android:layout_marginTop="45dp"
@@ -28,6 +31,7 @@
             android:textSize="15dp"/>
 
         <TextView
+            android:id="@+id/tx_flower_store_address"
             android:layout_width="200dp"
             android:layout_height="20dp"
             android:layout_marginTop="65dp"
@@ -45,6 +49,7 @@
             />
 
         <Button
+            android:id="@+id/btn_flower_store_plus"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_alignParentRight="true"
