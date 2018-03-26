@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <!--<GridView
+        android:id="@+id/custom_dialog_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        >-->
+    <TextView
+        android:id="@+id/custom1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="custom1"
+        />
+    <TextView
+        android:id="@+id/custom2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="custom2"
+        />
+    <TextView
+        android:id="@+id/custom3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="custom3"
+        />
+    <TextView
+        android:id="@+id/custom4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="custom4"
+        />
+    <!-- </GridView>-->
+
+    <Button
+        android:id="@+id/custom_dialog_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="확인"
+        />
+
+</LinearLayout>
