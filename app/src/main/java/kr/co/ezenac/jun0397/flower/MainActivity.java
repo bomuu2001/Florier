@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         btn_dra=findViewById(R.id.btn_dra);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(R.mipmap.ic_launcher, "Page1", new MakeRealFlower());
+        adapter.addFragment(R.mipmap.ic_launcher, "Page1", new MainPage());
         adapter.addFragment(R.drawable.ic_launcher_background, "page2", new MakeDryFlower());
         adapter.addFragment(R.drawable.ic_launcher_background, "Page3", new OderPage());
         adapter.addFragment(R.drawable.ic_launcher_background, "Page4", new FlowerStore());
