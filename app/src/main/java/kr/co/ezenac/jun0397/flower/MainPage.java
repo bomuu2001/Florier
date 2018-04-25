@@ -26,15 +26,9 @@ public class MainPage extends Fragment {
         ViewGroup rootview = (ViewGroup) inflater.inflate(R.layout.activity_main_page, container, false);
         Activity parentActivity = getActivity();
         ListView list_store = rootview.findViewById(R.id.list_store);
-        final ScrollView scroll_view = rootview.findViewById(R.id.scroll_view);
 
-        list_store.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                scroll_view.requestDisallowInterceptTouchEvent(true);
-                return false;
-            }
-        });
+
+
 
         ArrayList<Store> stores = new ArrayList<>();
 
