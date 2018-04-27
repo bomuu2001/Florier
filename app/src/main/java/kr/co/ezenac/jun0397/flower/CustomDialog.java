@@ -21,14 +21,10 @@ import butterknife.OnItemSelected;
 public class CustomDialog extends Dialog {
     ArrayList<String> text = new ArrayList<>();
 
-    @BindView(R.id.custom1)
-    TextView custom1;
-    @BindView(R.id.custom2)
-    TextView custom2;
-    @BindView(R.id.custom3)
-    TextView custom3;
-    @BindView(R.id.custom4)
-    TextView custom4;
+    @BindView(R.id.custom1) TextView custom1;
+    @BindView(R.id.custom2) TextView custom2;
+    @BindView(R.id.custom3) TextView custom3;
+    @BindView(R.id.custom4) TextView custom4;
 
     public interface Callbacks{
         void onClickSelect(ArrayList<String> text);

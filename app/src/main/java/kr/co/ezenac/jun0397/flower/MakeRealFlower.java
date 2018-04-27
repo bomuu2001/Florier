@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
 import kr.co.ezenac.jun0397.flower.Bean.Flower;
 import kr.co.ezenac.jun0397.flower.adapter.FlowerListAdapter;
 
@@ -20,12 +21,12 @@ import kr.co.ezenac.jun0397.flower.adapter.FlowerListAdapter;
  */
 
 public class MakeRealFlower extends Fragment{
+    @BindView(R.id.flower_list) GridView flower_list;
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         ViewGroup rootview = (ViewGroup) inflater.inflate(R.layout.make_real_flower, container, false);
         Activity parentActivity = getActivity();
 
-        GridView flower_list = rootview.findViewById(R.id.flower_list);
         ArrayList<Flower> flower = new ArrayList<>();
 
         Flower flower1 = new Flower(0,0,"장미",25000,"www.naver.com");

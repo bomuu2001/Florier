@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import kr.co.ezenac.jun0397.flower.Bean.Flower;
 import kr.co.ezenac.jun0397.flower.Bean.flower_test;
 import kr.co.ezenac.jun0397.flower.adapter.ViewPagerAdapter;
@@ -22,9 +24,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn_dra;
-    LinearLayout drawer;
-    DrawerLayout drawer_layout;
+    @BindView(R.id.btn_dra)Button btn_dra;
+    @BindView(R.id.drawer)LinearLayout drawer;
+    @BindView(R.id.drawer_layout)DrawerLayout drawer_layout;
     TabLayout mTabLayout;
     ViewPager mViewPager;
 
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         Call<ArrayList<flower_test>> item = RetrofitService.getInstance().getRetrofitRequest().test(1,"장미");
         Log.d("ksj","들어옴");
@@ -51,12 +54,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         mTabLayout = (TabLayout) findViewById(R.id.tab);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        drawer_layout = findViewById(R.id.drawer_layout);
-        drawer = findViewById(R.id.drawer);
-        btn_dra=findViewById(R.id.btn_dra);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(R.mipmap.ic_launcher, "Page1", new MainPage());

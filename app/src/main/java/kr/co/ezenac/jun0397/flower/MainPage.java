@@ -15,20 +15,20 @@ import android.widget.ScrollView;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import kr.co.ezenac.jun0397.flower.Bean.Flower;
 import kr.co.ezenac.jun0397.flower.Bean.Store;
 import kr.co.ezenac.jun0397.flower.adapter.FlowerListAdapter;
 import kr.co.ezenac.jun0397.flower.adapter.FlowerStoreListAdapter;
 
 public class MainPage extends Fragment {
+    @BindView(R.id.list_store) ListView list_store;
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         ViewGroup rootview = (ViewGroup) inflater.inflate(R.layout.activity_main_page, container, false);
         Activity parentActivity = getActivity();
-        ListView list_store = rootview.findViewById(R.id.list_store);
-
-
-
+        ButterKnife.bind(this,rootview);
 
         ArrayList<Store> stores = new ArrayList<>();
 
