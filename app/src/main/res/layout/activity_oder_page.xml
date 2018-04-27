@@ -13,43 +13,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="가격"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            />
-        <Spinner
-            android:id="@+id/oder_page_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:prompt="@string/price_select"
-            >
-        </Spinner>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="색상"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            />
-        <TextView
-            android:id="@+id/oder_page_text"
-            android:layout_width="300dp"
-            android:layout_height="25dp"
-            android:hint="색상선택"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="주소선택"
             android:textAppearance="?android:attr/textAppearanceLarge"
             />
@@ -73,7 +36,7 @@
         android:id="@+id/fragmentHere"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         >
         <TextView
             android:id="@+id/oder_page_mapView"
@@ -81,5 +44,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_store"
+        android:layout_marginLeft="20dp"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+       >
+    </ListView>
+
 
 </LinearLayout>

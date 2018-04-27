@@ -1,5 +1,6 @@
 package kr.co.ezenac.jun0397.flower.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import kr.co.ezenac.jun0397.flower.R;
 
 public class FlowerStoreListAdapter extends BaseAdapter {
     ArrayList<Store> stores = new ArrayList<>();
+
 
     public FlowerStoreListAdapter(ArrayList<Store> stores) {
         this.stores = stores;
@@ -41,6 +43,7 @@ public class FlowerStoreListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         FlowerStoreListAdapter.Holder holder = new FlowerStoreListAdapter.Holder();
+
         if(view==null){
             view = LayoutInflater.from(viewGroup.getContext()).
                     inflate(R.layout.flower_store_list_item,viewGroup,false);
@@ -58,6 +61,8 @@ public class FlowerStoreListAdapter extends BaseAdapter {
         holder.tx_flower_store_name.setText(item.getName());
         holder.tx_flower_store_phone.setText(item.getCall());
         holder.tx_flower_store_address.setText(item.getAddress());
+
+        Store itme = (Store) getItem(position);
 
         return view;
     }

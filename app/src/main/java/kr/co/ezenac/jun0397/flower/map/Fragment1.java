@@ -25,7 +25,7 @@ import kr.co.ezenac.jun0397.flower.R;
 
 public class Fragment1 extends Fragment {
 
-    private static final String CLIENT_ID = "Wuu8gD2zmnbRXvOScaBf";
+    private static final String CLIENT_ID = "30Y3N27ylFbDbmuIwsya";
 
     private NMapContext nMapContext;
     private NMapView nMapView;
