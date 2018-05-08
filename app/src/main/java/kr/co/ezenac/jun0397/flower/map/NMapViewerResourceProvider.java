@@ -15,6 +15,7 @@
  */
 package kr.co.ezenac.jun0397.flower.map;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -197,6 +198,7 @@ public class NMapViewerResourceProvider extends NMapResourceProvider implements
      *
      * @see NMapPOIflagType
      */
+    @SuppressLint("LongLogTag")
     @Override
     protected int findResourceIdForMarker(int markerId, boolean focused) {
         int resourceId = 0;

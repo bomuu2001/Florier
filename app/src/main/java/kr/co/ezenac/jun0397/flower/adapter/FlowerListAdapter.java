@@ -66,8 +66,6 @@ public class FlowerListAdapter extends BaseAdapter {
         View flower_img;
         TextView tx_flower_name;
         TextView tx_flower_price;
-
-
     }
 
 }

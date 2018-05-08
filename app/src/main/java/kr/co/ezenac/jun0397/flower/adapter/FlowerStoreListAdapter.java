@@ -62,8 +62,6 @@ public class FlowerStoreListAdapter extends BaseAdapter {
         holder.tx_flower_store_phone.setText(item.getCall());
         holder.tx_flower_store_address.setText(item.getAddress());
 
-        Store itme = (Store) getItem(position);
-
         return view;
     }
 

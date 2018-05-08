@@ -1,5 +1,6 @@
 package kr.co.ezenac.jun0397.flower.map;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -17,6 +18,9 @@ import com.nhn.android.maps.overlay.NMapPOIdata;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 
+import java.util.ArrayList;
+
+import kr.co.ezenac.jun0397.flower.Bean.Store;
 import kr.co.ezenac.jun0397.flower.R;
 
 /**
@@ -32,6 +36,8 @@ public class Fragment1 extends Fragment {
     private NMapController nMapController;
     private NMapOverlayManager nMapOverlayManager;
     private NMapViewerResourceProvider nMapViewerResourceProvider;
+
+    ArrayList<Store> stores = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -75,10 +81,19 @@ public class Fragment1 extends Fragment {
 
         int markerId = NMapPOIflagType.PIN;
 
+        ArrayList<Store> list = (ArrayList<Store>) getActivity().getIntent().getSerializableExtra("district");
+        /*Intent intent = getActivity().getIntent();
+        String district = intent.getStringExtra("district");*/
+
+
+
         // set POI data
         NMapPOIdata poiData = new NMapPOIdata(2, nMapViewerResourceProvider);
         poiData.beginPOIdata(2);
-        poiData.addPOIitem(127.0225713, 37.5025202, "ezen", markerId, 0);
+        /*for(int i=0; i<list.size(); i++) {
+            poiData.addPOIitem(list.get(i).getLon(), list.get(i).getLat(), list.get(i).getName(), markerId, 0);
+        }*/
+        poiData.addPOIitem(127.025393, 37.501809, "ezen2", markerId, 0);
         poiData.endPOIdata();
 
         // create POI data overlay
