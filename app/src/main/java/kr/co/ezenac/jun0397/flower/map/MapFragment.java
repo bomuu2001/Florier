@@ -1,8 +1,7 @@
 package kr.co.ezenac.jun0397.flower.map;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +26,7 @@ import kr.co.ezenac.jun0397.flower.R;
  * Created by Administrator on 2018-03-26.
  */
 
-public class Fragment1 extends Fragment {
+public class MapFragment extends NMapFragment {
 
     private static final String CLIENT_ID = "30Y3N27ylFbDbmuIwsya";
 
@@ -81,23 +80,35 @@ public class Fragment1 extends Fragment {
 
         int markerId = NMapPOIflagType.PIN;
 
-        ArrayList<Store> list = (ArrayList<Store>) getActivity().getIntent().getSerializableExtra("district");
-        /*Intent intent = getActivity().getIntent();
-        String district = intent.getStringExtra("district");*/
+        Bundle bundle = getArguments();
+        ArrayList<Store> list = bundle.getParcelableArrayList("district");
 
+
+       /* Log.d("args", "getArgs: " +getArguments().getParcelableArrayList("district"));
+
+        Log.d("map","map: " +list);*/
+        /*Intent intent = getActivity().getIntent();
+        ArrayList<Store> list = (ArrayList<Store>) intent.getSerializableExtra("district");*/
 
 
         // set POI data
         NMapPOIdata poiData = new NMapPOIdata(2, nMapViewerResourceProvider);
         poiData.beginPOIdata(2);
-        /*for(int i=0; i<list.size(); i++) {
+
+        for (int i = 0; i < list.size(); i++) {
             poiData.addPOIitem(list.get(i).getLon(), list.get(i).getLat(), list.get(i).getName(), markerId, 0);
-        }*/
-        poiData.addPOIitem(127.025393, 37.501809, "ezen2", markerId, 0);
+
+            Log.d("size", "size: " +list.size());
+            Log.d("list", "Lon" +i +": " +list.get(i).getLon() +"Lat: " +list.get(i).getLat());
+        }
+
         poiData.endPOIdata();
 
         // create POI data overlay
         NMapPOIdataOverlay poiDataOverlay = nMapOverlayManager.createPOIdataOverlay(poiData, null);
+        // show all POI data
+        poiDataOverlay.showAllPOIdata(0);
+
     }
     @Override
     public void onResume() {
@@ -129,7 +140,7 @@ public class Fragment1 extends Fragment {
         @Override
         public void onMapInitHandler(NMapView nMapView, NMapError nMapError) {
             if(nMapError == null){
-                nMapController.setMapCenter(new NGeoPoint(127.0225713, 37.5025202), 14);
+                /*nMapController.setMapCenter(new NGeoPoint(127.0225713, 37.5025202), 14);*/
             } else{
                 Log.d("kac", "setError");
             }
