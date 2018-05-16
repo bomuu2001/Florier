@@ -169,8 +169,8 @@ public class OderPage extends Fragment {
                   Log.d("kac", "district: " +i1 +stores2);
               }
           }
-          Intent intent = new Intent(getActivity(), Main2Activity.class);
-          startActivity(intent);
+          /*Intent intent = new Intent(getActivity(), Main2Activity.class);
+          startActivity(intent);*/
 
           FlowerStoreListAdapter FlowerStoreListadapter = new FlowerStoreListAdapter(stores2);
           list_store.setAdapter(FlowerStoreListadapter);
@@ -183,6 +183,7 @@ public class OderPage extends Fragment {
           FragmentManager fm = getFragmentManager();
           FragmentTransaction fragmentTransaction = fm.beginTransaction();
           fragmentTransaction.add(R.id.fragmentHere, map);
+          fragmentTransaction.replace(R.id.fragmentHere, map);
           fragmentTransaction.commit();
           Log.d("bundle", "bundle: " +bundle);
         }
