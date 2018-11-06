@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
-import kr.co.ezenac.jun0397.flower.Bean.Fragmentinfo;
+import kr.co.ezenac.jun0397.flower.beans.Fragmentinfo;
 
 /**
  * Created by Administrator on 2018-03-14.

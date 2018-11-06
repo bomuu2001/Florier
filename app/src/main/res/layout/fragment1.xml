@@ -1,13 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    tools:context=".Fragment1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+            <include layout="@layout/include_fragment1">
 
-    <com.nhn.android.maps.NMapView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/mapView"/>
-
-</LinearLayout>
+            </include>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d2d1d1"
+            android:layout_margin="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="#f2f0f0">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="나만의 꽃다발 만들기"
+                    android:textColor="#62748c"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:layout_margin="10dp"/>
+                <ImageView
+                    android:id="@+id/startMake2"
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/if_flower"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"/>
+                <Button
+                    android:id="@+id/startMake1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/if_next" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="#f2f0f0">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="집근처 꽃다발 사러가기"
+                    android:textColor="#62748c"
+                    android:layout_gravity="center"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_margin="10dp"/>
+                <ImageView
+                    android:id="@+id/startFind2"
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/if_shop"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"/>
+                <Button
+                    android:id="@+id/startFind1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/if_next"/>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d2d1d1"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="꽃 이야기"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="꽃에 대한 정보를 한눈에 볼 수 있는 Florier만의 커뮤니티공간"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"/>
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="2"
+            android:layout_margin="5dp">
+        </GridView>
+    </LinearLayout>
+</ScrollView>

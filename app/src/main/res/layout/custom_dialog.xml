@@ -1,47 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-
-    <!--<GridView
-        android:id="@+id/custom_dialog_grid"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center">
+    <ImageView
+        android:id="@+id/img_flower"
+        android:layout_width="180dp"
+        android:layout_height="200dp"
+        android:background="@drawable/flower1" />
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:numColumns="3"
-        >-->
-    <TextView
-        android:id="@+id/custom1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="custom1"
-        />
-    <TextView
-        android:id="@+id/custom2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="custom2"
-        />
-    <TextView
-        android:id="@+id/custom3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="custom3"
-        />
-    <TextView
-        android:id="@+id/custom4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="custom4"
-        />
-    <!-- </GridView>-->
-
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="10dp">
+        <TextView
+            android:id="@+id/tx_flower_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="거베라"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/tx_flower_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="운명적인 만남"
+            android:layout_marginTop="15dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <Button
+                android:id="@+id/btn_minus"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:text="-"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"/>
+            <TextView
+                android:id="@+id/tx_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"/>
+            <Button
+                android:id="@+id/btn_plus"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:text="+" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tx_flower_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2500"
+                android:textSize="21dp"
+                android:layout_marginTop="15dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="원"
+                android:textSize="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="3dp"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/shopping_bag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="장바구니"
+            android:layout_marginTop="15dp"/>
+    </LinearLayout>
     <Button
-        android:id="@+id/custom_dialog_confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="확인"
-        />
-
+        android:id="@+id/btn_cancle"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_gravity="top"
+        android:layout_margin="5dp"
+        android:background="@drawable/x"/>
 </LinearLayout>

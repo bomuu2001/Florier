@@ -2,9 +2,14 @@ package kr.co.ezenac.jun0397.flower;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -12,83 +17,83 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnItemSelected;
+import kr.co.ezenac.jun0397.flower.beans.Flower;
+import kr.co.ezenac.jun0397.flower.makeFlower.MakeFlower;
 
 /**
  * Created by Administrator on 2018-03-26.
  */
 
 public class CustomDialog extends Dialog {
-    ArrayList<String> text = new ArrayList<>();
 
-    @BindView(R.id.custom1) TextView custom1;
-    @BindView(R.id.custom2) TextView custom2;
-    @BindView(R.id.custom3) TextView custom3;
-    @BindView(R.id.custom4) TextView custom4;
+    @BindView(R.id.img_flower) ImageView img_flower;
+    @BindView(R.id.tx_flower_name) TextView tx_flower_name;
+    @BindView(R.id.tx_flower_language) TextView tx_flower_language;
+    @BindView(R.id.tx_flower_price) TextView tx_flower_price;
+    @BindView(R.id.btn_minus) Button btn_minus;
+    @BindView(R.id.btn_plus) Button btn_plus;
+    @BindView(R.id.tx_count) TextView tx_count;
+    @BindView(R.id.shopping_bag) Button shopping_bag;
+    @BindView(R.id.btn_cancle) Button btn_cancle;
 
-    public interface Callbacks{
-        void onClickSelect(ArrayList<String> text);
-    }
+    ArrayList<Flower> items = new ArrayList<>();
+    int a = 1; //tx_count 변수
 
-    Callbacks callbacks = null;
-
-    public void setCallbacks(Callbacks callbacks) {
-        this.callbacks = callbacks;
-    }
-
-    public CustomDialog(@NonNull Context context) {
+    public CustomDialog(@NonNull Context context, ArrayList<Flower> items) {
         super(context);
+        this.items = items;
+    }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//타이틀 바 삭제
+        //getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT)); //다이얼로그의 배경을 투명으로 만듭니다.
         setContentView(R.layout.custom_dialog);
         ButterKnife.bind(this);
 
-        custom1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                text.add("custom1");
-            }
-        });
-
-        custom2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                text.add("custom2");
-            }
-        });
-
-        custom3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                text.add("custom3");
-            }
-        });
-
-        custom4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                text.add("custom4");
-            }
-        });
-        Log.d("kac",text +",");
     }
-
-    @OnItemSelected({R.id.custom1,R.id.custom2,R.id.custom3,R.id.custom4})
-    public void onSelected(View view){
-        for(int i=0; i<text.size(); i++){
-            text.add(i, String.valueOf(i));
-        }
-    }
-
-    @OnClick(R.id.custom_dialog_confirm)
-    public void onClick(View v){
-        onClickItem(text);
+    //다이얼로그를 닫기
+    @OnClick(R.id.btn_cancle)
+    public void clickbtn_cancle(View view){
         dismiss();
     }
-
-    public void onClickItem(ArrayList<String> text)
-    {
-        if(callbacks != null){
-            callbacks.onClickSelect(text);
+    //"+" 클릭시 수량증가
+    @OnClick(R.id.btn_plus)
+    public void clickbtn_plus(View view){
+        a++;
+        tx_count.setText(String.valueOf(a));
+    }
+    //"-" 클릭시 수량증가
+    @OnClick(R.id.btn_minus)
+    public void clickbtn_minus(View view){
+        if(a != 0) {
+            a--;
+            tx_count.setText(String.valueOf(a));
         }
+    }
+    //장바구니 추가
+    @OnClick(R.id.shopping_bag)
+    public void clickshopping_bag(View view){
+
+        String flower_name = tx_flower_name.getText().toString();
+        int flower_price = Integer.parseInt(tx_flower_price.getText().toString());
+        Log.d("ljy","name = "+flower_name+" "+"price = "+flower_price);
+
+        //makeflower 클라스로 데이터 보냄
+        Intent intent = new Intent(getContext(),MakeFlower.class);
+        intent.putExtra("flower_name",flower_name);
+        intent.putExtra("flower_price",flower_price);
+        intent.putExtra("flower_quantity",a);
+        getContext().startActivity(intent);
+    }
+    //클릭한 아이템으로 데이터 변경
+    public void setData(int i){
+//        int a = Integer.parseInt(items.get(i).getFlower_img());
+//        img_flower.setBackgroundResource(R.drawable.a);
+//        tx_flower_name.setText(items.get(i).getFlower_name());
+//        tx_flower_language.setText(items.get(i).getFlower_language());
+//        tx_flower_price.setText(String.valueOf(items.get(i).getFlower_price()));
     }
 }

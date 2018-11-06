@@ -1,7 +1,6 @@
 package kr.co.ezenac.jun0397.flower.map;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,26 +8,23 @@ import android.view.ViewGroup;
 
 import com.nhn.android.maps.NMapContext;
 import com.nhn.android.maps.NMapController;
+import com.nhn.android.maps.NMapLocationManager;
 import com.nhn.android.maps.NMapProjection;
 import com.nhn.android.maps.NMapView;
 import com.nhn.android.maps.maplib.NGeoPoint;
 import com.nhn.android.maps.nmapmodel.NMapError;
 import com.nhn.android.maps.overlay.NMapPOIdata;
+
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 
 import java.util.ArrayList;
 
-import kr.co.ezenac.jun0397.flower.Bean.Store;
 import kr.co.ezenac.jun0397.flower.R;
-
-/**
- * Created by Administrator on 2018-03-26.
- */
+import kr.co.ezenac.jun0397.flower.beans.Store;
 
 public class MapFragment extends NMapFragment {
-
-    private static final String CLIENT_ID = "30Y3N27ylFbDbmuIwsya";
+    private static final String CLIENT_ID = "RZR4oXBL2cFAvo9M7mtF";
 
     private NMapContext nMapContext;
     private NMapView nMapView;
@@ -36,23 +32,19 @@ public class MapFragment extends NMapFragment {
     private NMapOverlayManager nMapOverlayManager;
     private NMapViewerResourceProvider nMapViewerResourceProvider;
 
-    ArrayList<Store> stores = new ArrayList<>();
+    private NMapPOIdataOverlay.OnStateChangeListener onPOIdataStateChangeListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment1, container, false);
+        return inflater.inflate(R.layout.nmap, container, false);
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         nMapContext = new NMapContext(super.getActivity());
 
         nMapContext.onCreate();
-
-
     }
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -64,13 +56,14 @@ public class MapFragment extends NMapFragment {
     }
 
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
         nMapContext.onStart();
 
         nMapView.setClickable(true);
-        nMapView.displayZoomControls(true);
         nMapView.setEnabled(true);
+        // 확대/축소를 위한 줌 컨트롤러 표시 옵션 활성화
+        nMapView.setBuiltInZoomControls(true, null);
 
         nMapView.setOnMapStateChangeListener(onMapStateChangeListener);
         nMapController = nMapView.getMapController();
@@ -80,28 +73,22 @@ public class MapFragment extends NMapFragment {
 
         int markerId = NMapPOIflagType.PIN;
 
-        Bundle bundle = getArguments();
-        ArrayList<Store> list = bundle.getParcelableArrayList("district");
-
-
-       /* Log.d("args", "getArgs: " +getArguments().getParcelableArrayList("district"));
-
-        Log.d("map","map: " +list);*/
-        /*Intent intent = getActivity().getIntent();
-        ArrayList<Store> list = (ArrayList<Store>) intent.getSerializableExtra("district");*/
-
-
-        // set POI data
+        // set POI data (핀찍기)
         NMapPOIdata poiData = new NMapPOIdata(2, nMapViewerResourceProvider);
         poiData.beginPOIdata(2);
+            //위치 데이터 넘겨옴(선택 지역 꽃집 리스트)
+            Bundle bundle = getArguments();
+            Log.d("ljy","받는 번들 = "+bundle);
+            if(bundle != null) {
+                ArrayList<Store> items = bundle.getParcelableArrayList("list");
 
-        for (int i = 0; i < list.size(); i++) {
-            poiData.addPOIitem(list.get(i).getLon(), list.get(i).getLat(), list.get(i).getName(), markerId, 0);
-
-            Log.d("size", "size: " +list.size());
-            Log.d("list", "Lon" +i +": " +list.get(i).getLon() +"Lat: " +list.get(i).getLat());
-        }
-
+                Log.d("ljy", "받는 bundle = " + items);
+                for (int i = 0; i < items.size(); i++) {
+                    poiData.addPOIitem(items.get(i).getLon(), items.get(i).getLat(), items.get(i).getName(), markerId, 0);
+                }
+            }else{
+                return;
+            }
         poiData.endPOIdata();
 
         // create POI data overlay
@@ -109,27 +96,37 @@ public class MapFragment extends NMapFragment {
         // show all POI data
         poiDataOverlay.showAllPOIdata(0);
 
+        // set event listener to the overlay
+        poiDataOverlay.setOnStateChangeListener(onPOIdataStateChangeListener);
+
     }
+
     @Override
     public void onResume() {
         super.onResume();
         nMapContext.onResume();
     }
+
     @Override
     public void onPause() {
         super.onPause();
+
         nMapContext.onPause();
     }
+
     @Override
     public void onStop() {
+
         nMapContext.onStop();
+
         super.onStop();
     }
+
     @Override
     public void onDestroyView() {
-
         super.onDestroyView();
     }
+
     @Override
     public void onDestroy() {
         nMapContext.onDestroy();
@@ -140,7 +137,7 @@ public class MapFragment extends NMapFragment {
         @Override
         public void onMapInitHandler(NMapView nMapView, NMapError nMapError) {
             if(nMapError == null){
-                /*nMapController.setMapCenter(new NGeoPoint(127.0225713, 37.5025202), 14);*/
+                nMapController.setMapCenter(new NGeoPoint(127.0225713, 37.5025202), 14);
             } else{
                 Log.d("kac", "setError");
             }

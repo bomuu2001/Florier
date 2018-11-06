@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".makeFlower.MakeFlower"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/back_red"
+            android:layout_margin="10dp"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        //하단 장바구니
+        <SlidingDrawer
+            android:id= "@+id/drawer"
+            android:layout_width= "match_parent"
+            android:layout_height= "450dp"
+            android:layout_alignParentBottom="true"
+            android:content= "@+id/content"
+            android:handle= "@+id/handle"
+            android:topOffset= "60dip" >
+            //손잡이
+            <Button
+                android:id="@+id/handle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#ec5e5e"/>
+            <RelativeLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ec5e5e">
+               <LinearLayout
+                   android:id="@+id/cart2"
+                   android:layout_above="@id/bottom"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="10dp"
+                   android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="장바구니"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center" />
+                <ListView
+                    android:id="@+id/cart_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="10dp">
+                </ListView>
+               </LinearLayout>
+                <Button
+                    android:id="@+id/btn_order"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp"
+                    android:text="주문하기"
+                    android:textSize="25dp"/>
+                <LinearLayout
+                    android:id="@+id/bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="총금액"
+                        android:textSize="15dp"
+                        android:layout_margin="10dp"/>
+                    <TextView
+                        android:id="@+id/sum_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7000원"
+                        android:textSize="20dp"
+                        android:layout_margin="10dp"/>
+                 </LinearLayout>
+            </RelativeLayout>
+        </SlidingDrawer>
+    </RelativeLayout>
+</LinearLayout>

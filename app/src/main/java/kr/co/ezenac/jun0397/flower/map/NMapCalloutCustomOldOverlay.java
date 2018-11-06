@@ -1,20 +1,4 @@
-/*
- * Copyright 2016 NAVER Corp.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package kr.co.ezenac.jun0397.flower.map;
-
 import android.graphics.Canvas;
 import android.graphics.PointF;
 import android.graphics.Rect;
@@ -29,12 +13,6 @@ import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.NMapView;
 import com.nhn.android.mapviewer.overlay.NMapCalloutOverlay;
 import com.nhn.android.mapviewer.overlay.NMapResourceProvider;
-
-/**
- * Customized callout overlay.
- *
- * @author kyjkim
- */
 public class NMapCalloutCustomOldOverlay extends NMapCalloutOverlay {
     private static final String LOG_TAG = "NMapCalloutCustomOverlay";
     private static final boolean DEBUG = false;
@@ -268,7 +246,7 @@ public class NMapCalloutCustomOldOverlay extends NMapCalloutOverlay {
         }
     }
 
-	/* Internal Functions */
+    /* Internal Functions */
 
     private void drawBackground(Canvas canvas) {
 
@@ -291,7 +269,7 @@ public class NMapCalloutCustomOldOverlay extends NMapCalloutOverlay {
             mWidthTitleTruncated = mapViewWidth;
             float maxWidth = mWidthTitleTruncated - 2 * mMarginX - 2 * mPaddingX;
             if (DEBUG) {
-                Log.i(LOG_TAG, "adjustTextBounds: maxWidth=" + maxWidth + ", mMarginX=" + mMarginX + ", mPaddingX="
+                Log.i("ljy", "adjustTextBounds: maxWidth=" + maxWidth + ", mMarginX=" + mMarginX + ", mPaddingX="
                         + mPaddingX);
             }
 
@@ -312,7 +290,7 @@ public class NMapCalloutCustomOldOverlay extends NMapCalloutOverlay {
             mTitleTruncated = title;
 
             if (DEBUG) {
-                Log.i(LOG_TAG, "adjustTextBounds: mTitleTruncated=" + mTitleTruncated + ", length="
+                Log.i("ljy", "adjustTextBounds: mTitleTruncated=" + mTitleTruncated + ", length="
                         + mTitleTruncated.length());
             }
         }
@@ -328,7 +306,7 @@ public class NMapCalloutCustomOldOverlay extends NMapCalloutOverlay {
         }
 
         if (DEBUG) {
-            Log.i(LOG_TAG, "adjustTextBounds: mTempRect.width=" + mTempRect.width() + ", mTempRect.height="
+            Log.i("ljy", "adjustTextBounds: mTempRect.width=" + mTempRect.width() + ", mTempRect.height="
                     + mTempRect.height());
         }
 
