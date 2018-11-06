@@ -21,18 +21,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".makeFlower.MakeFlower" />
         <activity android:name=".makeFlower.Make_Flower_Fragment1" />
         <activity android:name=".makeFlower.Make_Flower_Fragment2" />
         <activity android:name=".makeFlower.Make_Flower_Fragment3" />
-        <activity android:name=".login_register.Login" />
+        <activity android:name=".login_register.Login" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".login_register.Regist" />
         <activity android:name=".login_register.PhoneNumberCheck" />
         <activity android:name=".find_shop_goods.Find_shop_goods" />
