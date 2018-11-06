@@ -56,7 +56,7 @@ public class Fragment2 extends Fragment {
         ViewGroup rootview = (ViewGroup) inflater.inflate(R.layout.fragment2, container, false);
         ButterKnife.bind(this,rootview);
 
-        //구(ex서초구) 어댑터 생성
+        //구(ex서초구) 어댑터 생성~
         adspin1 = ArrayAdapter.createFromResource(getActivity(), R.array.gu, android.R.layout.simple_spinner_dropdown_item);
         adspin1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_gu.setAdapter(adspin1);
